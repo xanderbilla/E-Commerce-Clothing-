@@ -1,0 +1,132 @@
+/* .container {
+    flex: 1;
+    margin: 5px;
+    min-width: 280px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5fbfd;
+    position: relative;
+}
+
+
+.container_circle {
+    width: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+}
+
+.container_img {
+    height: 75%;
+    z-index: 2;
+}
+
+.container_info {
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.container_info:hover {
+    opacity: 1;
+}
+
+
+
+.container_info__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    transition: all 0.5s ease;
+}
+
+.container_info__icon:hover {
+    background-color: #e9fff5;
+    transform: scale(1.1);
+} */
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image:hover{    
+    box-shadow: -1px 0px 15px 5px rgba(121, 107, 107, 0.49);
+    -webkit-box-shadow: -1px 0px 15px 5px rgba(121, 107, 107, 0.49);
+    -moz-box-shadow: -1px 0px 15px 5px rgba(121, 107, 107, 0.49);
+}
+
+.main_img,
+.second_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.main-img {
+    z-index: 1;
+}
+
+.card_info {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: white;
+    color: teal;
+    padding: 3px 5px;
+    z-index: 3;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.card_title {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.card_prices {
+    display: flex;
+    gap: 20px;
+}
+
+.card_price {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.card_price:first-child {
+    color: gray;
+    text-decoration: line-through;
+}
