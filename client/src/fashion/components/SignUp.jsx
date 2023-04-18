@@ -1,102 +1,47 @@
-import React, { useState } from 'react';
-import styles from '../styles/signup.module.css';
-import { AiOutlineEye } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import '../styles/signup.css';
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [visible, setVisible] = useState(false);
+
+  const [formSubmitted, setFormSubmitted] = useState(false)
+
+  const handleForm = () => {
+    setFormSubmitted(!formSubmitted)
+  }
 
   return (
-    <div className={styles.container}>
-      <span className={styles.title}>Create a new account</span>
-      <div className={styles.wrapper}>
-        <form className={styles.form}>
-          <div className={styles.form_element}>
-            <label className={styles.label} htmlFor="name">
-              Full Name
-            </label>
-            <input
-              className={styles.input}
-              type="text"
-              name="name"
-              autoComplete="name"
-              required
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
+    <div className="signup">
+      <div className="wrapper">
+        <form action="" className="signup_form">
+          <div className="form_input">
+            <label className='label' htmlFor="name">Full Name</label>
+            <input className='input' required type="text" id='name' disabled={formSubmitted} />
           </div>
-          <div className={styles.form_element}>
-            <label className={styles.label} htmlFor="username">
-              Username
-            </label>
-            <input
-              className={styles.input}
-              type="text"
-              name="username"
-              autoComplete="username"
-              required
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
+          <div className="form_input">
+            <label className='label' htmlFor="username">Username</label>
+            <input className='input' required type="text" id='username' disabled={formSubmitted} />
           </div>
-          <div className={styles.form_element}>
-            <label className={styles.label} htmlFor="email">
-              Email Address
-            </label>
-            <input
-              className={styles.input}
-              type="email"
-              name="email"
-              autoComplete="email"
-              required
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+          <div className="form_input">
+            <label className='label' htmlFor="email">Email</label>
+            <input className='input' required type="email" id='email' disabled={formSubmitted} />
           </div>
-          <div className={styles.form_element}>
-            <label className={styles.label} htmlFor="password">
-              Password
-            </label>
-            <input
-              className={styles.input}
-              type={visible ? 'text' : 'password'}
-              name="password"
-              autoComplete="password"
-              required
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {visible ? (
-              <AiOutlineEye
-                className={styles.eye}
-                size={25}
-                onClick={() => setVisible(false)}
-              />
-            ) : (
-              <AiOutlineEye
-                className={styles.eye}
-                size={25}
-                onClick={() => setVisible(true)}
-              />
-            )}
+          <div className="form_input">
+            <label className='label' htmlFor="password">Password</label>
+            <input className='input' required type="password" id='password' disabled={formSubmitted} />
           </div>
-          <div className={styles.form_submit}>
-            <button className={styles.form_submit__button} type="submit">
-              Sign Up
-            </button>
-            <span>
-              Already have an account?{' '}
-              <Link to='/signin' className={styles.form_submit__new}> Login</Link></span>
-          </div>
+          <input className='button' type="submit" disabled={formSubmitted} onClick={handleForm} value="Sign Up" />
         </form>
+        {
+          formSubmitted && (
+            <form action="" className="verify_form">
+              <div className="form_input">
+                <label className='label' htmlFor="code">Verification Code</label>
+                <input className='input' required type="number" id='code' />
+              </div>
+              <input className='button' type="submit" value="Verify" />
+            </form>
+          )
+        }
       </div>
     </div>
   )
