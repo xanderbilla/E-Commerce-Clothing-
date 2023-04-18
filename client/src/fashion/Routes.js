@@ -5,5 +5,6 @@ import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import Cart from './pages/Cart';
 import Verify from './components/Verify';
+import User from './pages/User'
 
-export {Cart, LoginPage, Main, SignUpPage, ProductList, ProductPage, Verify}
+export {Cart, LoginPage, Main, SignUpPage, ProductList, ProductPage, User, Verify}
