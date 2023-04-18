@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react'
-import { Cart, LoginPage, Main, SignUpPage, ProductList, ProductPage, Verify } from './fashion/Routes'
+import { Cart, LoginPage, Main, SignUpPage, ProductList, ProductPage, User,Verify } from './fashion/Routes'
 import Navbar from './fashion/components/Navbar'
 import Footer from './fashion/components/Footer'
 import MiniNavbar from './fashion/components/MiniNavbar';
@@ -20,6 +20,7 @@ function App() {
               <Route path='signup' element={<SignUpPage />} />
               <Route path='signin' element={<LoginPage />} />
               <Route path='verify' element={<Verify />} />
+              <Route path='user' element={<User />} />
               <Route path='product/:productId' element={<ProductPage />} />
               <Route path=':catName' >
                 <Route index element={<ProductList />} />
