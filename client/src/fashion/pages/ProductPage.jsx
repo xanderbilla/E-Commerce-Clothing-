@@ -31,6 +31,24 @@ const ProductPage = () => {
           <p className={styles.desc}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptas laudantium expedita vero. Possimus dolorum accusamus explicabo, id vel, totam earum eius tenetur dignissimos minima eveniet aspernatur mollitia, fugit dolor.</p>
         </div>
         <span className={styles.price}>$ 190</span>
+        <div className={styles.additional_details}>
+          <div className={styles.additional_detail}>
+            <span className={styles.option_title}>Size</span>
+            <ul className={styles.select}>
+              <li className={styles.selectOptions}>M</li>
+              <li className={styles.selectOptions}>L</li>
+              <li className={styles.selectOptions}>XL</li>
+            </ul>
+          </div>
+          <div className={styles.additional_detail}>
+            <span className={styles.option_title}>Color</span>
+            <ul className={styles.select}>
+              <li className={styles.selectOptions}>Green</li>
+              <li className={styles.selectOptions}>Blue</li>
+              <li className={styles.selectOptions}>White</li>
+            </ul>
+          </div>
+        </div>
         <div className={styles.product_purchase}>
           <div className={styles.purchase__quantity}>
             <div className={styles.quantity}>
@@ -57,7 +75,7 @@ const ProductPage = () => {
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus aspernatur esse nulla voluptas rerum, vel quas a iusto porro exercitationem accusantium itaque nobis saepe quaerat, tempore debitis? Esse, ut consequuntur!
               </p>
-            <hr className={styles.info__divider} />
+              <hr className={styles.info__divider} />
             </div>
           </div>
         </div>

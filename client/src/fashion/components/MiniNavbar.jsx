@@ -6,8 +6,8 @@ const MiniNavbar = () => {
     return (
         <div className={styles.mininavbar}>
             <div className={styles.left}>
-                <select className={styles.all_categories} name="categories" title="categories">
-                    <option className={styles.categories__selectOption} selected disabled value="All">All Categories</option>
+                <select className={styles.all_categories} name="categories" title="categories" defaultValue="All">
+                    <option className={styles.categories__selectOption} disabled value="All">All Categories</option>
                     <option className={styles.categories__selectOption} value="Men">Men</option>
                     <option className={styles.categories__selectOption} value="Women">Women</option>
                     <option className={styles.categories__selectOption} value="Kids">Kids</option>
