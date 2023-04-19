@@ -1,0 +1,57 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-client-dev-234448-authRole",
+      "UnauthRoleArn": "arn:aws:iam::954138568328:role/amplify-client-dev-234448-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::954138568328:role/amplify-client-dev-234448-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-client-dev-234448-deployment",
+      "UnauthRoleName": "amplify-client-dev-234448-unauthRole",
+      "StackName": "amplify-client-dev-234448",
+      "StackId": "arn:aws:cloudformation:ap-south-1:954138568328:stack/amplify-client-dev-234448/f2cac2c0-de14-11ed-abfb-0aa1546e2424",
+      "AmplifyAppId": "d1uhrcujzrmrqr"
+    }
+  },
+  "auth": {
+    "client81bb4aef": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL",
+          "NAME"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-client-dev-234448-deployment/amplify-cfn-templates/auth/client81bb4aef-cloudformation-template.json",
+        "logicalId": "authclient81bb4aef"
+      },
+      "lastPushTimeStamp": "2023-04-18T18:20:11.738Z",
+      "output": {
+        "UserPoolId": "ap-south-1_5Uog17XV9",
+        "AppClientIDWeb": "2dckiba52pfe3i8a38gd97ejpb",
+        "AppClientID": "2pe308o3d65h6huh0s75qve7im",
+        "IdentityPoolId": "ap-south-1:039fe0c8-31c7-49e8-875d-2af0994ef828",
+        "UserPoolArn": "arn:aws:cognito-idp:ap-south-1:954138568328:userpool/ap-south-1_5Uog17XV9",
+        "IdentityPoolName": "client81bb4aef_identitypool_81bb4aef__dev",
+        "UserPoolName": "client81bb4aef_userpool_81bb4aef"
+      },
+      "lastPushDirHash": "Fm1RZEI49W+4CgrWl2IoWXGwCN8="
+    }
+  }
+}

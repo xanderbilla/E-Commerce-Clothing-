@@ -1,13 +1,14 @@
+//Implement Forgot Password (Future Plans)
+
 import React, { useState } from 'react';
 import styles from '../styles/login.module.css';
-import { AiOutlineEye } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [visible, setVisible] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -18,49 +19,60 @@ const Login = () => {
       navigate('/fashion');
     } catch (error) {
       console.log('error signing in', error);
+      setErrorMessage('Invalid Credentials')
     }
   };
 
   return (
-    <div className={styles.container}>
-      <span className={styles.title}>Login to your account</span>
-      <div className={styles.wrapper}>
-        <form onSubmit={handleLogin} className={styles.form}>
-          <div className={styles.form_element}>
-            <label className={styles.label} htmlFor="username">
-              username
-            </label>
-            <input className={styles.input} type="username" name="username" autoComplete='username' required id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+    <div className={styles.signup}>
+    <div className={styles.wrapper}>
+        <form className={styles.signup_form}>
+          <span className={styles.title}>Login Your Account!</span>
+          <div className={styles.form_input}>
+            <input
+              className={styles.input}
+              required
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
           </div>
-          <div className={styles.form_element}>
-            <label className={styles.label} htmlFor="password">
-              Password
-            </label>
-            <input className={styles.input} type={visible ? "text" : "password"} name="password" autoComplete='password' required id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            {visible ?
-              (<AiOutlineEye className={styles.eye} size={25} onClick={() => setVisible(false)} />) :
-              (<AiOutlineEye className={styles.eye} size={25} onClick={() => setVisible(true)} />)}
+          <div className={styles.form_input}>
+            <input
+              className={styles.input}
+              required
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
-          <div className={styles.form_optional}>
-            <div className={styles.form_optional__element}>
-              <input className={styles.input} type="checkbox" name="checkbox" autoComplete='checkbox' id="checkbox" />
-              <label className={styles.label} htmlFor="checkbox">
-                Remember Me
-              </label>
+          <div className={styles.help}>
+            <div className={styles.remember}>
+              <input type="checkbox" name="remember" />
+              <span className={styles.other_info}>Remember Me</span>
             </div>
-            <div className={styles.form_optional__element}>
-              <span className={styles.form_optional__link}>Forget Password?</span>
+            {/* <div className={styles.forgot_passwd">
+              <span className={styles.other_info'>Forgot Password?</span>
+            </div> */}
+          </div>
+          <button className={styles.button} type="button" onClick={handleLogin}>
+            Sign In
+          </button>
+          {errorMessage && (
+            <div className={styles.error}>
+              <span className={styles.warning}>{errorMessage}</span>
             </div>
-          </div>
-          <div className={styles.form_submit}>
-            <button className={styles.form_submit__button} type="submit">
-              Login
-            </button>
-            <span>Don't have account? <Link to='/signup' className={styles.form_submit__new}> Sign Up</Link></span>
-          </div>
+          )}
+          <Link to='/fashion/signup'>
+          <button className={styles.button}>
+            Sign Up
+          </button>
+          </Link>
         </form>
-      </div>
     </div>
+  </div>
   )
 }
 

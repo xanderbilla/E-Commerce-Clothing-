@@ -1,105 +1,151 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Amplify, Auth } from 'aws-amplify';
+import awsconfig from '../../aws-exports';
 import styles from '../styles/signup.module.css';
-import { AiOutlineEye } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+Amplify.configure(awsconfig);
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [verificationCode, setVerificationCode] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [visible, setVisible] = useState(false);
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const redirect = useNavigate();
+
+  const handleSignUp = async () => {
+    try {
+      await Auth.signUp({
+        username,
+        password,
+        attributes: {
+          email,
+          name,
+        },
+      });
+      setFormSubmitted(true);
+      setName('');
+      setUsername('');
+      setEmail('');
+      setPassword('');
+    } catch (error) {
+      console.log('Error signing up: ', error);
+      if (error.code === 'UsernameExistsException') {
+        setErrorMessage('Username already exists!');
+      } else {
+        setErrorMessage('Something Went Wrong');
+      }
+    }
+  };
+
+  const handleVerification = async () => {
+    try {
+      await Auth.confirmSignUp(username, verificationCode);
+      redirect('/fashion')
+    } catch (error) {
+      console.log('Error verifying user: ', error);
+      setErrorMessage('Verification code is invalid. Please try again.');
+    }
+  };
 
   return (
-    <div className={styles.container}>
-      <span className={styles.title}>Create a new account</span>
+    <div className={styles.signup}>
       <div className={styles.wrapper}>
-        <form className={styles.form}>
-          <div className={styles.form_element}>
-            <label className={styles.label} htmlFor="name">
-              Full Name
-            </label>
-            <input
-              className={styles.input}
-              type="text"
-              name="name"
-              autoComplete="name"
-              required
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className={styles.form_element}>
-            <label className={styles.label} htmlFor="username">
-              Username
-            </label>
-            <input
-              className={styles.input}
-              type="text"
-              name="username"
-              autoComplete="username"
-              required
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div className={styles.form_element}>
-            <label className={styles.label} htmlFor="email">
-              Email Address
-            </label>
-            <input
-              className={styles.input}
-              type="email"
-              name="email"
-              autoComplete="email"
-              required
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className={styles.form_element}>
-            <label className={styles.label} htmlFor="password">
-              Password
-            </label>
-            <input
-              className={styles.input}
-              type={visible ? 'text' : 'password'}
-              name="password"
-              autoComplete="password"
-              required
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {visible ? (
-              <AiOutlineEye
-                className={styles.eye}
-                size={25}
-                onClick={() => setVisible(false)}
+        {!formSubmitted && (
+          <form className={styles.signup_form}>
+            <span className={styles.title}>Create An Account!</span>
+            <div className={styles.form_input}>
+              <input
+                className={styles.input}
+                required
+                type="text"
+                placeholder="Full Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
-            ) : (
-              <AiOutlineEye
-                className={styles.eye}
-                size={25}
-                onClick={() => setVisible(true)}
+            </div>
+            <div className={styles.form_input}>
+              <input
+                className={styles.input}
+                required
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
-            )}
-          </div>
-          <div className={styles.form_submit}>
-            <button className={styles.form_submit__button} type="submit">
+            </div>
+            <div className={styles.form_input}>
+              <input
+                className={styles.input}
+                required
+                type="email"
+                placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className={styles.form_input}>
+              <input
+                className={styles.input}
+                required
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className={styles.help}>
+              <div className={styles.remember}>
+                <input type="checkbox" name="remember" />
+                <span className={styles.other_info}>Remember Me</span>
+              </div>
+            </div>
+            <button className={styles.button} type="button" onClick={handleSignUp}>
               Sign Up
             </button>
-            <span>
-              Already have an account?{' '}
-              <Link to='/signin' className={styles.form_submit__new}> Login</Link></span>
-          </div>
-        </form>
+            {errorMessage && (
+              <div className={styles.error}>
+                <span className={styles.warning}>{errorMessage}</span>
+              </div>
+            )}
+            
+          <Link to='/fashion/signin'>
+          <button className={styles.button}>
+            Sign In
+          </button>
+          </Link>
+          </form>
+        )}
+        {formSubmitted && (
+          <form className={styles.verify_form}>
+            <span className={styles.title}>Verify Your Account!</span>
+            <div className={styles.form_input}>
+      <span className={styles.desc}>Enter 6-digit code sent on your Email Address</span>
+              <input
+                className={styles.input}
+                required
+                type="number"
+                placeholder="code"
+                value={verificationCode}
+                onChange={(e) => setVerificationCode(e.target.value)}
+              />
+            </div>
+    <button className={styles.button} type="button" onClick={handleVerification}>
+              Verify
+            </button>
+            {errorMessage && (
+      <div className={styles.error}>
+        <span className={styles.warning}>{errorMessage}</span>
+              </div>
+            )}
+          </form>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SignUp
+export default SignUp;

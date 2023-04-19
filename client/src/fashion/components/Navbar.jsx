@@ -9,7 +9,7 @@ import Logout from './Logout'
 import Menu from './Menu';
 
 const Navbar = ({ isOpen, setIsOpen }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const handleClick = () => {
         setIsOpen(!isOpen);
@@ -55,7 +55,7 @@ const Navbar = ({ isOpen, setIsOpen }) => {
                 <Link to='/fashion'><img src="https://i.imgur.com/S5awLwi.png" alt="" height="40px" /></Link>
                 <div className={styles.left}>
                     <div className={styles.search__container}>
-                        <input type="search" name="" id="" placeholder='Search...' className={styles.search__input}/>
+                        <input type="search" name="" id="" placeholder='Search...' className={styles.search__input} />
                         <SearchOutlinedIcon style={{ color: "gray", fontSize: 25 }} />
                     </div>
                 </div>
