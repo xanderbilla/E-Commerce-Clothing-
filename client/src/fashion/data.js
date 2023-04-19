@@ -59,6 +59,7 @@ export const featuredProducts = [
   {
     _id: 2,
     img: "https://images.pexels.com/photos/1759622/pexels-photo-1759622.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    img2: "https://images.pexels.com/photos/1620765/pexels-photo-1620765.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     title: "Coat",
     isNew: true,
     oldPrice: 19,
@@ -71,6 +72,7 @@ export const featuredProducts = [
   {
     _id: 3,
     img: "https://images.pexels.com/photos/1457983/pexels-photo-1457983.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    img2: null,
     title: "Skirt",
     oldPrice: 19,
     category: "Women",
@@ -106,6 +108,7 @@ export const popularProducts = [
   {
     _id: 2,
     img: "https://images.pexels.com/photos/1759622/pexels-photo-1759622.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    img2: "https://images.pexels.com/photos/14637395/pexels-photo-14637395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     title: "Coat",
     isNew: true,
     oldPrice: 19,
@@ -117,7 +120,8 @@ export const popularProducts = [
   },
   {
     _id: 3,
-    img: "https://images.pexels.com/photos/1457983/pexels-photo-1457983.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    img: "https://images.pexels.com/photos/14577038/pexels-photo-14577038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    img2: "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     title: "Skirt",
     oldPrice: 19,
     category: "Women",
