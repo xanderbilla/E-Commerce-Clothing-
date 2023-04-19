@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { Cart, LoginPage, Main, SignUpPage, ProductList, ProductPage, User, Verify } from './fashion/Routes';
 import Navbar from './fashion/components/Navbar';
 import Footer from './fashion/components/Footer';
