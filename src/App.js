@@ -4,6 +4,7 @@ import { Cart, LoginPage, Main, SignUpPage, ProductList, ProductPage, ProfilePag
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MiniNavbar from './components/MiniNavbar';
+import Error from './pages/Error';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +25,7 @@ function App() {
             </Route>
             <Route path='signup' element={<SignUpPage />} />
             <Route path='signin' element={<LoginPage />} />
+            <Route path='*' element={<Error />} />
           </Route>
         </Routes>
       </BrowserRouter>
