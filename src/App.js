@@ -18,7 +18,6 @@ function App() {
             <Route index element={<Main />} />
             <Route path='cart' element={<Cart />} />
             <Route path='my-profile' element={<ProfilePage />} />
-            <Route path='verify' element={<Verify />} />
             <Route path='product/:productId' element={<ProductPage />} />
             <Route path='/category/:catName' >
               <Route index element={<ProductList />} />
