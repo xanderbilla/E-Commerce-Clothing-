@@ -5,7 +5,6 @@ import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { Link } from 'react-router-dom';
-import Logout from './Logout'
 import Menu from './Menu';
 
 const Navbar = ({ isOpen, setIsOpen }) => {
@@ -32,15 +31,6 @@ const Navbar = ({ isOpen, setIsOpen }) => {
             setIsAuthenticated(false);
         }
     };
-
-    const handleLogout = async () => {
-        try {
-            await Auth.signOut();
-            setIsAuthenticated(false);
-        } catch (error) {
-            console.log('Error signing out: ', error);
-        }
-    }
 
     return (
         <div className={styles.container}>
@@ -69,7 +59,7 @@ const Navbar = ({ isOpen, setIsOpen }) => {
                     </div>
                     {isAuthenticated ? (
                         <>
-                            <Logout handleLogout={handleLogout} />
+                            {/* <Logout handleLogout={handleLogout} /> */}
                         </>
                     ) : (
                         <>
