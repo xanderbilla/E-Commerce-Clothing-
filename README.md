@@ -192,7 +192,7 @@ Vikas Singh (Xander Billa)
 * [Instagram](https://instagram.com/xander.billa)
 * [Email](mailto:xanderbilla@gmail.com)
 
-Project Link: [http://url.com](https://fashion.xanderbilla.com)
+[Project Link](https://fashion.xanderbilla.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
