@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
-import { Cart, LoginPage, Main, SignUpPage, ProductList, ProductPage, Verify, ProfilePage } from './static/Routes';
+import { Cart, LoginPage, Main, SignUpPage, ProductList, ProductPage, ProfilePage } from './static/Routes';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MiniNavbar from './components/MiniNavbar';
