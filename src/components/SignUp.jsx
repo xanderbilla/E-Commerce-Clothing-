@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { Amplify, Auth } from 'aws-amplify';
-import awsconfig from '../aws-exports';
+import { Auth } from 'aws-amplify';
 import styles from '../styles/signup.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 
-Amplify.configure(awsconfig);
 
 const SignUp = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
