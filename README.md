@@ -8,7 +8,7 @@
 <br />
 <div align="center">
   <a href="https://xanderbilla.com">
-    <img src="https://i.imgur.com/G6sWWqH.png" alt="Logo" width="80" height="80">
+    <img src="https://i.imgur.com/G6sWWqH.png" alt="Logo" width="160" height="80">
   </a>
 
   <h3 align="center">Multi E-Commerce Application</h3>
@@ -189,10 +189,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Vikas Singh (Xander Billa)
 
-* [Instagram](https://instagram.com/xander.billa) - 
+* [Instagram](https://instagram.com/xander.billa)
 * [Email](mailto:xanderbilla@gmail.com)
 
-Project Link: [https://fashion.xanderbilla.com]
+[Project Link](https://fashion.xanderbilla.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
