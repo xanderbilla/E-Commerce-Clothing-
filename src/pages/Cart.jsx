@@ -2,15 +2,13 @@ import React from 'react'
 import styles from '../styles/cart.module.css'
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
-    const redirect = useNavigate()
     return (
         <div className={styles.container}>
             <h1 className={styles.container_title}>YOUR BAG</h1>
             <div className={styles.container_top}>
-                <button className={styles.container_top__button}onClick={() => redirect('/')}>CONTINUE SHOPPING</button>
+                <button className={styles.container_top__button}>CONTINUE SHOPPING</button>
                 <button className={styles.container_top__button}>CHECKOUT NOW</button>
             </div>
             <div className={styles.container_bottom}>

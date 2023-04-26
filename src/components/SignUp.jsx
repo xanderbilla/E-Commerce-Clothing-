@@ -42,7 +42,7 @@ const SignUp = () => {
   const handleVerification = async () => {
     try {
       await Auth.confirmSignUp(username, verificationCode);
-      redirect('/')
+      redirect('/login')
     } catch (error) {
       console.log('Error verifying user: ', error);
       setErrorMessage('Verification code is invalid. Please try again.');
