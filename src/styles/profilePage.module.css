@@ -81,3 +81,21 @@
     color: rgba(0, 0, 0, 0.515);
     margin: 16px 0;
 }
+
+@media screen and (max-width: 767px) {
+.center{
+    flex-direction: column;
+    gap: 40px;
+}
+
+.edit{
+    font-size: 14px;
+    padding: 4px;
+}
+
+.edit:hover{
+    border: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.448);
+}
+}
