@@ -53,7 +53,7 @@ const Footer = () => {
                 <div className={styles.container_contact}><EmailIcon style={{ marginRight: '10px' }} />
                     laila@email.com
                 </div>
-                <img className={styles.container_payment} src="http://i.ibb.co/Qfvn4z6/payment.png" alt="" />
+                <img className={styles.container_payment} src="https://i.imgur.com/iRvqTEm.png" alt="" />
             </div>
         </div>
     )
