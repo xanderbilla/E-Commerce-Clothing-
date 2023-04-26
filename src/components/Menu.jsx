@@ -7,19 +7,25 @@ export default function Menu({isOpen, setIsOpen}) {
           <div className={`${styles.menu} ${isOpen ? styles.active : ''}`}>
       <ul className={styles.list}>
         <li className={styles.listItem} onClick={()=>setIsOpen(false)}>
-          <Link className={styles.link_menu} to='/'>Products</Link>
+          <Link className={styles.link_menu} to='/category/Men'>Men</Link>
         </li>
         <li className={styles.listItem} onClick={()=>setIsOpen(false)}>
-          <Link className={styles.link_menu} to='/'>Account</Link>
+          <Link className={styles.link_menu} to='/category/Women'>Women</Link>
         </li>
         <li className={styles.listItem} onClick={()=>setIsOpen(false)}>
-          <Link className={styles.link_menu} to='/'>Categories</Link>
+          <Link className={styles.link_menu} to='/category/Kids'>Kids</Link>
         </li>
         <li className={styles.listItem} onClick={()=>setIsOpen(false)}>
-          <Link className={styles.link_menu} to='/'>Login</Link>
+          <Link className={styles.link_menu} to='/category/Accessories'>Accessories</Link>
         </li>
         <li className={styles.listItem} onClick={()=>setIsOpen(false)}>
-          <Link className={styles.link_menu} to='/'>Register</Link>
+          <Link className={styles.link_menu} to='/my-profile'>My Profile</Link>
+        </li>
+        <li className={styles.listItem} onClick={()=>setIsOpen(false)}>
+          <Link className={styles.link_menu} to='/signin'>Login</Link>
+        </li>
+        <li className={styles.listItem} onClick={()=>setIsOpen(false)}>
+          <Link className={styles.link_menu} to='/signup'>Register</Link>
         </li>
       </ul>
     </div>
