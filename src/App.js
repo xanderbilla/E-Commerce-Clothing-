@@ -15,19 +15,15 @@ function App() {
         <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
         <MiniNavbar />
         <Routes>
-          <Route path="/">
-            <Route index element={<Main />} />
-            <Route path='cart' element={<Cart />} />
-            <Route path='profile' element={<ProfilePage />} />
-            <Route path='product/:productId' element={<ProductPage />} />
-            <Route path='category/:catName' >
-              <Route index element={<ProductList />} />
-            </Route>
-            <Route path='signup' element={<SignUpPage />} />
-            <Route path='signin' element={<LoginPage />} />
+            <Route path='/' element={<Main />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/profile' element={<ProfilePage />} />
+            <Route path='/product/:productId' element={<ProductPage />} />
+            <Route path='/category/:catName' element={<ProductList />} />
+            <Route path='/signup' element={<SignUpPage />} />
+            <Route path='/signin' element={<LoginPage />} />
             <Route path='*' element={<Error />} />
-          </Route>
-        </Routes>
+          </Routes>
       </BrowserRouter>
       <Footer />
     </div>
